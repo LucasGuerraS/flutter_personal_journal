@@ -38,15 +38,14 @@ class AddJournalScreen extends StatelessWidget {
     );
   }
 
-  registerJournal(BuildContext context) async {
-
+  registerJournal(BuildContext context) {
     String content = _contentController.text;
     journal.content = content;
 
     JournalService service = JournalService();
 
-    bool response = await service.register(journal);
-
-    Navigator.pop(context, response);
+    service.register(journal).then((value) {
+      Navigator.pop(context, value);
+    });
   }
 }
