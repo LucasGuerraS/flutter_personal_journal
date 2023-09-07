@@ -9,7 +9,6 @@ void main() {
   runApp(const MyApp());
 
   JournalService service = JournalService();
-  //service.register(Journal.empty());
   service.getAll();
 }
 
@@ -36,14 +35,6 @@ class MyApp extends StatelessWidget {
       initialRoute: "home",
       routes: {
         "home": (context) => const HomeScreen(),
-        "add-journal": (context) => AddJournalScreen(
-              journal: Journal(
-                id: "id",
-                content: "content",
-                createdAt: DateTime.now(),
-                updatedAt: DateTime.now(),
-              ),
-            ),
       },
       onGenerateRoute: (settings) {
         if (settings.name == "add-journal") {
